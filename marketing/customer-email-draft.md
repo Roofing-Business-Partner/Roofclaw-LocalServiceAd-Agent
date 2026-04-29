@@ -6,7 +6,7 @@ Hi {{first_name}},
 
 I wanted to put something useful on your radar.
 
-We just published an open-source launchpad for a **Sales Rep RoofClaw** — specifically for roofing companies using HubSpot and Google Local Services Ads.
+We just published an open-source launchpad for a **RoofClaw Local Service Ad Agent** — specifically for roofing companies using HubSpot and Google Local Services Ads.
 
 The idea is simple:
 
@@ -14,7 +14,7 @@ Your Sales RoofClaw can help respond to new LSA leads, qualify them, create/upda
 
 Here is the repo:
 
-https://github.com/Roofing-Business-Partner/roofclaw-sales-rep-hubspot
+https://github.com/Roofing-Business-Partner/roofclaw-local-service-ad-agent
 
 A very important note: I do **not** recommend installing this on a RoofClaw that was configured for a different primary job.
 

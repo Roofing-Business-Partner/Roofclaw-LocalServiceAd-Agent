@@ -1,8 +1,8 @@
-# RoofClaw Sales Rep Launchpad for HubSpot + Google Local Services Ads
+# RoofClaw Local Service Ad Agent
 
-**An open-source launchpad for turning a SALES-configured RoofClaw into a front-line roofing sales rep.**
+**An open-source launchpad for turning a SALES-configured RoofClaw into a Local Service Ad response agent for roofing companies.**
 
-This repo is designed to be handed to an existing RoofClaw agent:
+This repo is designed to be handed to an existing sales-configured RoofClaw agent:
 
 > "Read this repo and implement the launchpad, starting with `LAUNCHPAD.md`."
 
@@ -19,7 +19,7 @@ It guides a qualifying RoofClaw through connecting:
 
 This is **not** for every RoofClaw.
 
-A RoofClaw should only implement this repo if its existing `SOUL.md` is clearly configured as a **Sales Rep / SDR / Inbound Sales / Revenue Desk / Lead Qualification** agent.
+A RoofClaw should only implement this repo if its existing `SOUL.md` is clearly configured as a **Sales Rep / SDR / Inbound Sales / Revenue Desk / Lead Qualification / Local Service Ad response** agent.
 
 If the current RoofClaw is configured as any other primary role — Chief of Staff, Production Coordinator, Operations, Recruiting, Bookkeeping, Support, Estimating, Dispatch, Admin, etc. — the agent must reject the implementation as a conflicting objective.
 
