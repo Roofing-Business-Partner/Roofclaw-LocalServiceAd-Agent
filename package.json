@@ -1,7 +1,7 @@
 {
-  "name": "roofclaw-sales-rep-hubspot",
+  "name": "roofclaw-local-service-ad-agent",
   "version": "0.1.0",
-  "description": "Sales Rep Launchpad for HubSpot + Google Local Services Ads on sales-configured RoofClaw agents.",
+  "description": "RoofClaw Local Service Ad Agent for Google Local Services Ads, HubSpot, Twilio, and xAI voice workflows.",
   "type": "module",
   "private": false,
   "license": "MIT",

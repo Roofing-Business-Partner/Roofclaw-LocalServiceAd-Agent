@@ -1,4 +1,4 @@
-# LAUNCHPAD.md — Implement the Sales Rep Launchpad
+# LAUNCHPAD.md — Implement the RoofClaw Local Service Ad Agent
 
 This file is the first thing a RoofClaw agent should read.
 
