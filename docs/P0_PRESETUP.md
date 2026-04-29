@@ -70,11 +70,19 @@ The Google Ads API exposes Local Services lead data, and the Local Services Lead
 
 ## 5. Phone / text / iMessage requirements
 
+Read `docs/PHONE_SETUP.md`, `docs/VOICE_STACK_STANDARD.md`, and `docs/CALL_GUARDRAILS.md` before enabling calls.
+
 Do not enable these until HubSpot and LSA are stable.
+
+Phone standard:
+
+- Twilio is the default OpenClaw Voice Call provider.
+- CallRail is recommended when the customer needs routed numbers, marketing attribution, call tracking, or LSA/office-number complexity.
+- Mock mode is required before live calls.
 
 Possible channels:
 
-- OpenClaw Voice Call plugin through Twilio, Telnyx, or Plivo
+- OpenClaw Voice Call plugin through Twilio
 - BlueBubbles for iMessage on macOS
 - Client-approved SMS provider
 - Client-approved email provider

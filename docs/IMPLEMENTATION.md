@@ -106,7 +106,7 @@ Add one channel at a time:
 2. HubSpot note/task logging
 3. Email follow-up
 4. iMessage/SMS follow-up
-5. Phone call follow-up
+5. Phone call follow-up only after `docs/PHONE_SETUP.md` and `docs/CALL_GUARDRAILS.md` pass mock-mode testing
 
 Each channel needs:
 

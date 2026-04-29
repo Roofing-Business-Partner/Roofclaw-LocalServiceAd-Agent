@@ -69,7 +69,10 @@ Start here:
 4. [`docs/IMPLEMENTATION.md`](./docs/IMPLEMENTATION.md) — staged build plan
 5. [`docs/HUBSPOT_ROOFING_STANDARD.md`](./docs/HUBSPOT_ROOFING_STANDARD.md) — RBP HubSpot object/association standard for roofers
 6. [`docs/CRM_COMPATIBILITY_POC.md`](./docs/CRM_COMPATIBILITY_POC.md) — forward-compatibility guide for ProLine/Powrline, RoofLink, AccuLynx, and other CRMs
-7. [`docs/SOURCES.md`](./docs/SOURCES.md) — primary API references
+7. [`docs/PHONE_SETUP.md`](./docs/PHONE_SETUP.md) — Twilio-first phone setup standard, with CallRail for routed/tracking-number cases
+8. [`docs/VOICE_STACK_STANDARD.md`](./docs/VOICE_STACK_STANDARD.md) — conservative STT/TTS/realtime provider guidance and benchmark rules
+9. [`docs/CALL_GUARDRAILS.md`](./docs/CALL_GUARDRAILS.md) — live call scripts, escalation triggers, and HubSpot logging format
+10. [`docs/SOURCES.md`](./docs/SOURCES.md) — primary API references
 
 ## Repository status
 

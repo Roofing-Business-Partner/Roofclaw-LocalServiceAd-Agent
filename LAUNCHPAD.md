@@ -55,9 +55,10 @@ Minimum required:
 5. **HubSpot write test** — create/update one test contact, one building/listing if address exists, one deal, and the expected associations.
 6. **Google LSA read test** — pull recent LSA leads in read-only mode.
 7. **Google LSA append test** — append a safe test conversation only with owner approval.
-8. **Follow-up channels** — enable phone/text/email one at a time.
-9. **Human escalation** — verify the agent escalates correctly before live mode.
-10. **Live mode** — enable narrow live workflow, monitor first 10 leads manually.
+8. **Phone setup** — use `docs/PHONE_SETUP.md`; default to Twilio direct, CallRail only when routed/tracking/LSA-number complexity exists.
+9. **Follow-up channels** — enable phone/text/email one at a time.
+10. **Human escalation** — verify the agent escalates correctly before live mode.
+11. **Live mode** — enable narrow live workflow, monitor first 10 leads manually.
 
 ## Owner prompt
 
