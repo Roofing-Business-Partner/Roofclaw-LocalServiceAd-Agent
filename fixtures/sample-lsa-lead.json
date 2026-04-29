@@ -10,5 +10,12 @@
     "name": "Sample Homeowner",
     "phone": "+15555550123",
     "email": "sample.homeowner@example.com"
+  },
+  "property": {
+    "address1": "123 Sample Roof Lane",
+    "city": "Tampa",
+    "state": "FL",
+    "postal_code": "33602",
+    "country": "US"
   }
 }

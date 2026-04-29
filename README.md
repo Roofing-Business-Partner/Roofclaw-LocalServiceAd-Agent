@@ -8,7 +8,7 @@ This repo is designed to be handed to an existing RoofClaw agent:
 
 It guides a qualifying RoofClaw through connecting:
 
-- HubSpot CRM contacts/deals
+- HubSpot CRM contacts, deals, activities, and RBP's building/listing custom object standard
 - Google Local Services Ads leads and message replies
 - Optional outbound/inbound phone workflows through OpenClaw Voice Call
 - Optional iMessage/SMS follow-up through BlueBubbles or the client's approved messaging stack
@@ -41,7 +41,7 @@ When fully implemented, a Sales RoofClaw can help with:
 
 - Speed-to-lead responses from Google Local Services Ads
 - Instant lead triage and qualification
-- HubSpot contact/deal creation and hygiene
+- HubSpot contact/deal/building associations and activity hygiene
 - Follow-up by LSA message, phone, iMessage/SMS, and email when authorized
 - Appointment handoff or booking when calendar rules are connected
 - Human escalation for pricing, exceptions, angry customers, legal/insurance complexity, or unclear intent
@@ -67,7 +67,9 @@ Start here:
 2. [`AGENTS.md`](./AGENTS.md) — hard instructions for the RoofClaw agent
 3. [`docs/P0_PRESETUP.md`](./docs/P0_PRESETUP.md) — required setup before code
 4. [`docs/IMPLEMENTATION.md`](./docs/IMPLEMENTATION.md) — staged build plan
-5. [`docs/SOURCES.md`](./docs/SOURCES.md) — primary API references
+5. [`docs/HUBSPOT_ROOFING_STANDARD.md`](./docs/HUBSPOT_ROOFING_STANDARD.md) — RBP HubSpot object/association standard for roofers
+6. [`docs/CRM_COMPATIBILITY_POC.md`](./docs/CRM_COMPATIBILITY_POC.md) — forward-compatibility guide for ProLine/Powrline, RoofLink, AccuLynx, and other CRMs
+7. [`docs/SOURCES.md`](./docs/SOURCES.md) — primary API references
 
 ## Repository status
 

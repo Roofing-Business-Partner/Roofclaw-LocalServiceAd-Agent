@@ -38,6 +38,7 @@ Minimum required:
 
 - Owner confirms this RoofClaw is allowed to perform sales follow-up.
 - HubSpot private app token is available with required scopes.
+- HubSpot building/listing custom object internal name is discovered or ready to discover through schemas.
 - Google Ads / Local Services Ads access is available for the advertiser account.
 - Google Ads developer token and OAuth refresh token are available if using the LSA API.
 - Approved sales scripts are available for first response, qualification, appointment handoff, and escalation.
@@ -51,7 +52,7 @@ Minimum required:
 2. **Back up files** — `SOUL.md`, `TOOLS.md`, `HEARTBEAT.md`, `.env`, config, relevant scripts.
 3. **Configure secure environment** — no credentials in chat, docs, git, or memory.
 4. **HubSpot dry-run** — map one sample LSA lead into contact/deal payloads.
-5. **HubSpot write test** — create/update one test contact and one test deal.
+5. **HubSpot write test** — create/update one test contact, one building/listing if address exists, one deal, and the expected associations.
 6. **Google LSA read test** — pull recent LSA leads in read-only mode.
 7. **Google LSA append test** — append a safe test conversation only with owner approval.
 8. **Follow-up channels** — enable phone/text/email one at a time.
@@ -62,4 +63,4 @@ Minimum required:
 
 The owner can start implementation with:
 
-> Read this repo: `<repo-url>`. Start with `LAUNCHPAD.md`. Do not implement anything until you have completed the P0 soul gate and P0 pre-setup. If my current `SOUL.md` is not sales-rep related, reject the install and explain why.
+> Read this repo: `<repo-url>`. Start with `LAUNCHPAD.md`. Do not implement anything until you have completed the P0 soul gate and P0 pre-setup. Use the HubSpot Roofing Standard unless I explicitly approve a CRM compatibility PoC. If my current `SOUL.md` is not sales-rep related, reject the install and explain why.
