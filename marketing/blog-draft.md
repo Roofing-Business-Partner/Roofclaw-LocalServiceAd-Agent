@@ -61,7 +61,7 @@ To use the open-source launchpad, you need:
 
 We published the launchpad under the MIT license here:
 
-`REPO_URL_PLACEHOLDER`
+`https://github.com/Roofing-Business-Partner/roofclaw-sales-rep-hubspot`
 
 Point your Sales RoofClaw at the repo and ask it to start with `LAUNCHPAD.md`.
 

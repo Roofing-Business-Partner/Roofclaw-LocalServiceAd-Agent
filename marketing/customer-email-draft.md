@@ -14,7 +14,7 @@ Your Sales RoofClaw can help respond to new LSA leads, qualify them, create/upda
 
 Here is the repo:
 
-{{repo_url}}
+https://github.com/Roofing-Business-Partner/roofclaw-sales-rep-hubspot
 
 A very important note: I do **not** recommend installing this on a RoofClaw that was configured for a different primary job.
 
