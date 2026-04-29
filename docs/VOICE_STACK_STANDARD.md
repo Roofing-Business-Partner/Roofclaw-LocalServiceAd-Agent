@@ -1,34 +1,96 @@
 # Voice Stack Standard
 
-This repo makes a conservative production recommendation.
+This repo makes the voice decision for the customer.
 
 ## Default stack
 
 - **Telephony:** Twilio
 - **Routing / attribution when needed:** CallRail
-- **Default voice AI path:** OpenClaw Voice Call with a stable, already-supported STT/TTS or realtime provider
-- **Grok/xAI:** benchmark candidate, not default production standard yet
+- **Default voice AI path:** xAI/Grok cascaded voice stack
+- **Direct realtime voice agent:** Grok Voice Think Fast 1.0 is upcoming/advanced, not the normal customer self-setup path yet
+- **ElevenLabs:** optional only for custom branded voice polish
 
-## Why not default to Grok/xAI yet?
+## What "all-xAI" means
 
-xAI/Grok voice may become the best option. It may already be excellent. But this launchpad should not base customer setup on YouTube claims or hype.
+The default Sales RoofClaw voice stack should use xAI for the AI voice pipeline:
 
-Use Grok/xAI only after the Sales RoofClaw runs a side-by-side benchmark on the customer's actual call conditions.
+1. **Grok STT** — caller speech to text
+2. **Grok LLM** — reasoning and tool calling
+3. **Grok TTS** — agent text to speech
 
-## Default recommendation today
+This replaces the old Vapi/n8n/Pinecone-style stack for the normal RoofClaw use case.
 
-For customer-facing setup guidance, recommend:
+Twilio still carries the phone call. OpenClaw runs the agent. HubSpot is the CRM context. xAI handles the voice AI layer.
 
-1. Start with the OpenClaw-supported default/stable provider already configured on the RoofClaw.
-2. If the customer already has an OpenAI key and no other voice provider chosen, use OpenAI-backed realtime/STT/TTS for the first pilot.
-3. If the customer cares heavily about branded voice quality after the workflow is proven, evaluate ElevenLabs or xAI/Grok TTS.
-4. If low-latency call transcription is the bottleneck, benchmark xAI/Grok, Deepgram, OpenAI, and any available Google/Gemini option against the same call samples.
+## Recommended xAI defaults
 
-The launchpad should optimize for reliability, safe behavior, and simple setup before optimizing for the most impressive voice demo.
+Use these defaults unless the customer has a clear reason to change them:
 
-## Required benchmark before changing providers
+- STT provider: `xai`
+- STT mode: realtime/streaming for active calls; batch only for post-call transcription or voicemail/media review
+- STT formatting: enabled where supported, especially for phone numbers, dates, money, and addresses
+- LLM provider: `xai`
+- LLM model: use the customer's configured current Grok reasoning/tool model, with a fast model for call turns when available
+- TTS provider: `xai`
+- TTS voice: `ara` for warm customer-service tone, or `rex` for clear professional/business tone
+- TTS language: `en` unless the business explicitly serves another language
 
-Before making Grok/xAI or any other provider the live default, run the benchmark below.
+Do not default to ElevenLabs. xAI has its own TTS voices, including `ara`, `eve`, `rex`, `sal`, and `leo`.
+
+## Grok Voice Think Fast 1.0
+
+`grok-voice-think-fast-1.0` is promising and likely the future preferred path for direct speech-to-speech phone agents.
+
+Do **not** make it the normal customer setup path yet unless OpenClaw has first-class registered support on that machine or RBP has tested a safe adapter.
+
+Reason:
+
+- xAI documents the Voice Agent API and `grok-voice-think-fast-1.0` over WebSocket.
+- OpenClaw Voice Call supports realtime voice/transcription providers, but an unregistered provider is not magically active just because a model string exists.
+- If OpenClaw does not show Grok Voice Think Fast as a registered realtime voice provider, treat it as advanced/experimental.
+
+Recommended wording for customers:
+
+> Today we use the all-xAI cascaded stack: Grok STT, Grok LLM, and Grok TTS. Grok Voice Think Fast is on the roadmap as a direct realtime voice-agent upgrade once OpenClaw support is verified.
+
+## When to use ElevenLabs
+
+ElevenLabs is optional.
+
+Use it only when:
+
+- The client wants a custom cloned/branded voice.
+- The client strongly prefers a specific ElevenLabs voice.
+- xAI TTS fails the client's voice-quality test.
+
+Do not add ElevenLabs just because the agent needs a voice. xAI TTS covers the default requirement.
+
+## Phone-call context boundaries
+
+Phone calls must not expose the whole agent memory to customers.
+
+The phone prompt should narrow the agent to Customer Phone Mode and allow only:
+
+- Approved sales script
+- Call guardrails
+- Company-safe FAQ
+- Current LSA lead/contact/deal/building context
+- HubSpot lookup/write actions needed for the call
+- Calendar/booking rules if explicitly connected
+- Human escalation
+
+The phone prompt should not allow free access to:
+
+- Owner/private conversations
+- Internal strategy notes
+- Other customers or jobs
+- Credentials/API keys
+- Broad long-term memory
+- Non-sales tools unrelated to the call
+
+## Required benchmark before replacing defaults
+
+Do not replace the default xAI cascaded stack with another provider unless the new provider clearly wins on real roofing calls.
 
 Use at least 10 short samples:
 
@@ -53,8 +115,6 @@ Score each provider:
 | Stability / no dropped stream | 15% |
 | Cost | 10% |
 | Voice naturalness | 5% |
-
-Do not switch production providers unless the new provider clearly wins on the customer's actual use case.
 
 ## Minimum voice behavior requirements
 

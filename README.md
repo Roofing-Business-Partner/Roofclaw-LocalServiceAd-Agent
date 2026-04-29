@@ -10,7 +10,7 @@ It guides a qualifying RoofClaw through connecting:
 
 - HubSpot CRM contacts, deals, activities, and RBP's building/listing custom object standard
 - Google Local Services Ads leads and message replies
-- Optional outbound/inbound phone workflows through OpenClaw Voice Call
+- Optional outbound/inbound phone workflows through OpenClaw Voice Call using Twilio + xAI/Grok voice stack
 - Optional iMessage/SMS follow-up through BlueBubbles or the client's approved messaging stack
 - Optional email follow-up through the client's approved email stack
 - Human escalation rules for anything the sales agent should not handle alone
@@ -42,7 +42,7 @@ When fully implemented, a Sales RoofClaw can help with:
 - Speed-to-lead responses from Google Local Services Ads
 - Instant lead triage and qualification
 - HubSpot contact/deal/building associations and activity hygiene
-- Follow-up by LSA message, phone, iMessage/SMS, and email when authorized
+- Follow-up by LSA message, phone, iMessage/SMS, and email when authorized, with xAI/Grok as the default voice AI stack
 - Appointment handoff or booking when calendar rules are connected
 - Human escalation for pricing, exceptions, angry customers, legal/insurance complexity, or unclear intent
 

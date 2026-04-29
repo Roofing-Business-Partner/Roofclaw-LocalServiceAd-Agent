@@ -31,3 +31,19 @@ Primary API references used for this launchpad:
 ## Note
 
 APIs change. A Sales RoofClaw implementing this repo should verify field names and version-specific behavior against the live docs before enabling production writes.
+
+## xAI / Grok voice
+
+- Grok STT/TTS API announcement:
+  - https://x.ai/news/grok-stt-and-tts-apis
+- xAI Voice Agent API / Grok Voice Think Fast docs:
+  - https://docs.x.ai/developers/model-capabilities/audio/voice-agent
+- xAI text-to-speech docs:
+  - https://docs.x.ai/docs/guides/text-to-speech
+- xAI speech-to-text docs:
+  - https://docs.x.ai/docs/guides/speech-to-text
+
+## OpenClaw Voice Call
+
+- OpenClaw Voice Call plugin docs:
+  - https://docs.openclaw.ai/plugins/voice-call

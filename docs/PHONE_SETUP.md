@@ -6,7 +6,8 @@ Default recommendation:
 
 1. **Twilio** for the Sales RoofClaw's direct phone number and OpenClaw Voice Call integration.
 2. **CallRail** when the customer needs routed numbers, marketing attribution, call tracking, LSA/office-number complexity, or custom forwarding logic.
-3. **Mock mode first**, then one live test number, then first 10 real calls under human review.
+3. **xAI/Grok cascaded voice stack** for STT → LLM → TTS.
+4. **Mock mode first**, then one live test number, then first 10 real calls under human review.
 
 Do not present Twilio, Telnyx, and Plivo as equal options to the customer unless there is a real reason. OpenClaw supports Twilio, Telnyx, Plivo, and mock. This launchpad chooses Twilio as the normal business default.
 
@@ -53,7 +54,20 @@ Normal setup uses:
 - A Twilio phone number in E.164 format, e.g. `+15555550123`
 - A public webhook URL for inbound calls and media streams
 - A response system prompt specific to phone calls
-- STT/TTS or realtime voice provider configuration
+- xAI/Grok STT, LLM, and TTS configuration
+- A phone-specific response system prompt
+
+## Required xAI items
+
+The customer or builder needs:
+
+- xAI API key stored securely in OpenClaw configuration or environment
+- Grok STT available for call transcription
+- Grok LLM available for reasoning/tool calls
+- Grok TTS available for spoken output
+- A chosen xAI voice, defaulting to `ara` or `rex`
+
+Do not expose the xAI API key in chat, docs, git, screenshots, CRM notes, or memory.
 
 ## Required Twilio items
 
@@ -140,7 +154,7 @@ Only after human review succeeds:
 
 ## Minimal OpenClaw config shape
 
-This is illustrative. Do not paste real credentials into this file.
+This is illustrative. Do not paste real credentials into this file. Confirm exact OpenClaw config shape against the installed OpenClaw version before applying.
 
 ```json
 {
@@ -162,7 +176,21 @@ This is illustrative. Do not paste real credentials into this file.
           },
           "maxDurationSeconds": 600,
           "maxConcurrentCalls": 1,
-          "responseSystemPrompt": "You are the phone voice of a Sales RoofClaw. Follow CALL_GUARDRAILS.md. Keep replies short, ask one question at a time, and escalate if uncertain."
+          "streaming": {
+            "enabled": true,
+            "provider": "xai"
+          },
+          "tts": {
+            "enabled": true,
+            "provider": "xai",
+            "providers": {
+              "xai": {
+                "apiKey": "${XAI_API_KEY}",
+                "voice": "ara"
+              }
+            }
+          },
+          "responseSystemPrompt": "You are the phone voice of a Sales RoofClaw in Customer Phone Mode. Follow CALL_GUARDRAILS.md. Keep replies short, ask one question at a time, never expose internal memory, and escalate if uncertain."
         }
       }
     }

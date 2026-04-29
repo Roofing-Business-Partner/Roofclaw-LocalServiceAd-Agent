@@ -74,15 +74,18 @@ Read `docs/PHONE_SETUP.md`, `docs/VOICE_STACK_STANDARD.md`, and `docs/CALL_GUARD
 
 Do not enable these until HubSpot and LSA are stable.
 
-Phone standard:
+Phone/voice standard:
 
 - Twilio is the default OpenClaw Voice Call provider.
 - CallRail is recommended when the customer needs routed numbers, marketing attribution, call tracking, or LSA/office-number complexity.
+- xAI/Grok is the default cascaded voice AI stack: STT → LLM → TTS.
+- Grok Voice Think Fast is an upcoming/advanced direct realtime path, not the normal customer self-setup path yet.
 - Mock mode is required before live calls.
 
 Possible channels:
 
 - OpenClaw Voice Call plugin through Twilio
+- xAI/Grok STT, LLM, and TTS
 - BlueBubbles for iMessage on macOS
 - Client-approved SMS provider
 - Client-approved email provider
