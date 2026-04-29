@@ -56,6 +56,8 @@ Also confirm or discover:
 
 ## 4. Google Local Services Ads requirements
 
+Read `docs/GOOGLE_LSA_INGESTION.md` before promising sub-5-minute response times.
+
 The client needs access to the Google Ads account that owns the Local Services Ads leads.
 
 Required pieces typically include:
@@ -65,6 +67,8 @@ Required pieces typically include:
 - Google Ads developer token
 - OAuth client + refresh token authorized with `https://www.googleapis.com/auth/adwords`
 - Confirmation that Local Services Ads leads are available in that account
+- A durable scheduled polling mechanism, recommended every 2 minutes
+- Optional LSA notification email recipient if using email as a wake accelerator
 
 The Google Ads API exposes Local Services lead data, and the Local Services Lead Service includes an `AppendLeadConversation` method for adding text conversations to leads.
 

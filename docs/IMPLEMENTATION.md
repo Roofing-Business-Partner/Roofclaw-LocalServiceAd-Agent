@@ -60,7 +60,19 @@ ROOFCLAW_SALES_LIVE_MODE=true node src/examples/dry-run-lead-to-hubspot.mjs fixt
 
 Verify the test contact/deal in HubSpot.
 
-## Stage 5 — LSA read-only test
+## Stage 5 — LSA ingestion setup
+
+Read `docs/GOOGLE_LSA_INGESTION.md`. Configure a durable scheduled poller outside `HEARTBEAT.md`. The default SLA design is a 2-minute Google Ads API poll with optional email-triggered immediate poll.
+
+Test the starter read-only poller:
+
+```bash
+node src/lsa/poll-new-leads.mjs
+```
+
+Do not enable live responses until polling, de-duplication, HubSpot logging, and escalation are verified.
+
+## Stage 6 — LSA read-only test
 
 Use Google Ads API search in read-only mode to retrieve recent Local Services leads.
 
@@ -84,7 +96,7 @@ LIMIT 20
 
 If fields fail, inspect Google Ads field metadata for the client's API version and adjust. Do not guess live.
 
-## Stage 6 — LSA append test
+## Stage 7 — LSA append test
 
 With owner approval, append one safe test response to one test/low-risk lead:
 
@@ -98,7 +110,7 @@ await appendLeadConversation({
 
 Then verify in the LSA inbox.
 
-## Stage 7 — Channel expansion
+## Stage 8 — Channel expansion
 
 Add one channel at a time:
 
@@ -116,7 +128,7 @@ Each channel needs:
 - Human escalation path
 - Dry-run/test/live switch
 
-## Stage 8 — Live mode
+## Stage 9 — Live mode
 
 Only enable live mode after:
 
