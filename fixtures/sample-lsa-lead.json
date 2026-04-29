@@ -1,0 +1,14 @@
+{
+  "resource_name": "customers/1234567890/localServicesLeads/987654321",
+  "id": "987654321",
+  "creation_date_time": "2026-04-29 08:15:00",
+  "lead_type": "MESSAGE",
+  "lead_status": "NEW",
+  "category_id": "xcat:service_area_business_roofer",
+  "service_id": "roof_repair",
+  "contact": {
+    "name": "Sample Homeowner",
+    "phone": "+15555550123",
+    "email": "sample.homeowner@example.com"
+  }
+}
