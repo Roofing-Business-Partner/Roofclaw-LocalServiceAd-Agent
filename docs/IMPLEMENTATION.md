@@ -21,7 +21,19 @@ Back up local agent files before changes:
 
 Use recoverable copy operations. Do not delete or overwrite originals without backup.
 
-## Stage 2 — HubSpot dry run
+## Stage 2 — HubSpot standard mapping
+
+Read `docs/HUBSPOT_ROOFING_STANDARD.md`. Confirm the target portal has or can support:
+
+- Contact as person record
+- Building/Listing custom object as physical property record
+- Deal as opportunity record
+- Activity objects for notes/calls/emails/communications/tasks
+- Associations between contact, building/listing, deal, and activities
+
+If the client is not on HubSpot, stop and complete `docs/CRM_COMPATIBILITY_POC.md` before adapting the implementation.
+
+## Stage 3 — HubSpot dry run
 
 Use `src/examples/dry-run-lead-to-hubspot.mjs` with the sample fixture:
 
@@ -32,12 +44,13 @@ node src/examples/dry-run-lead-to-hubspot.mjs fixtures/sample-lsa-lead.json
 Review the contact and deal payloads. Confirm:
 
 - Contact name/phone/email mapping
+- Building/listing property mapping when address exists
 - Lead source
 - Deal name format
 - Pipeline and stage
 - Custom properties to use or omit
 
-## Stage 3 — HubSpot write test
+## Stage 4 — HubSpot write test
 
 Only after dry-run review:
 
@@ -47,7 +60,7 @@ ROOFCLAW_SALES_LIVE_MODE=true node src/examples/dry-run-lead-to-hubspot.mjs fixt
 
 Verify the test contact/deal in HubSpot.
 
-## Stage 4 — LSA read-only test
+## Stage 5 — LSA read-only test
 
 Use Google Ads API search in read-only mode to retrieve recent Local Services leads.
 
@@ -71,7 +84,7 @@ LIMIT 20
 
 If fields fail, inspect Google Ads field metadata for the client's API version and adjust. Do not guess live.
 
-## Stage 5 — LSA append test
+## Stage 6 — LSA append test
 
 With owner approval, append one safe test response to one test/low-risk lead:
 
@@ -85,7 +98,7 @@ await appendLeadConversation({
 
 Then verify in the LSA inbox.
 
-## Stage 6 — Channel expansion
+## Stage 7 — Channel expansion
 
 Add one channel at a time:
 
@@ -103,7 +116,7 @@ Each channel needs:
 - Human escalation path
 - Dry-run/test/live switch
 
-## Stage 7 — Live mode
+## Stage 8 — Live mode
 
 Only enable live mode after:
 

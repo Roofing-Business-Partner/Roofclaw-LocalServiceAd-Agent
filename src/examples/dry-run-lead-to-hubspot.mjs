@@ -21,8 +21,20 @@ function splitName(name = '') {
   };
 }
 
+function normalizedAddressKey(property = {}) {
+  const parts = [
+    property.address1 || property.street || property.streetAddress,
+    property.city,
+    property.state || property.region,
+    property.postal_code || property.postalCode || property.zip,
+    property.country
+  ];
+  return parts.filter(Boolean).join('|').toLowerCase().replace(/\s+/g, ' ').trim();
+}
+
 function mapLeadToHubSpot(lead) {
   const contact = lead.contact || lead.contact_details || {};
+  const property = lead.property || lead.address || lead.service_address || {};
   const name = splitName(contact.name || contact.fullName || 'LSA Lead');
   const service = lead.service_id || lead.service || 'roofing request';
   const lsaId = String(lead.id || '').trim();
@@ -37,6 +49,19 @@ function mapLeadToHubSpot(lead) {
   };
 
   Object.keys(contactProperties).forEach(key => contactProperties[key] === undefined && delete contactProperties[key]);
+
+  const buildingProperties = {
+    // These are conceptual property names. Map them to the portal's Building/Listing schema before live writes.
+    address: property.address1 || property.street || property.streetAddress || undefined,
+    city: property.city || undefined,
+    state: property.state || property.region || undefined,
+    zip: property.postal_code || property.postalCode || property.zip || undefined,
+    country: property.country || undefined,
+    roofclaw_normalized_address_key: normalizedAddressKey(property) || undefined,
+    roofclaw_lsa_lead_id: lsaId || undefined
+  };
+
+  Object.keys(buildingProperties).forEach(key => buildingProperties[key] === undefined && delete buildingProperties[key]);
 
   const dealProperties = {
     dealname: `LSA - ${contact.name || contact.phone || contact.email || 'New Lead'} - ${service}`,
@@ -58,7 +83,13 @@ function mapLeadToHubSpot(lead) {
     service
   };
 
-  return { contactProperties, dealProperties, context };
+  return {
+    contactProperties,
+    buildingProperties,
+    dealProperties,
+    context,
+    buildingWriteNote: 'Map buildingProperties to the tenant-specific Building/Listing object schema before live writes.'
+  };
 }
 
 const payload = mapLeadToHubSpot(lead);
@@ -75,4 +106,8 @@ const contact = await upsertContact({ token: config.token, properties: payload.c
 const deal = await createDeal({ token: config.token, properties: payload.dealProperties });
 await associateDefault({ token: config.token, fromType: 'deal', fromId: deal.id, toType: 'contact', toId: contact.id });
 
-console.log(JSON.stringify({ contactId: contact.id, dealId: deal.id }, null, 2));
+console.log(JSON.stringify({
+  contactId: contact.id,
+  dealId: deal.id,
+  buildingWriteSkipped: 'Starter execute path does not write Building/Listing objects until portal schema mapping is implemented.'
+}, null, 2));

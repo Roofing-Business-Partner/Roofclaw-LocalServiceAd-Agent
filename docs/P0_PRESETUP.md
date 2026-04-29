@@ -24,6 +24,8 @@ The owner must confirm:
 
 ## 3. HubSpot requirements
 
+This repo assumes the RBP HubSpot roofing standard. Read `docs/HUBSPOT_ROOFING_STANDARD.md` before implementation.
+
 Create or use a HubSpot Private App.
 
 Recommended minimum scopes:
@@ -43,6 +45,14 @@ Recommended minimum scopes:
 - `crm.schemas.deals.read`
 
 Confirm which pipeline and deal stage should receive new LSA opportunities.
+
+Also confirm or discover:
+
+- Custom object internal name for Building/Listing.
+- Contact ↔ Building/Listing association behavior.
+- Building/Listing ↔ Deal association behavior.
+- Which activity objects should be used for LSA messages, calls, texts, emails, and tasks.
+- Whether custom properties for LSA lead ID/resource name already exist or need owner-approved creation.
 
 ## 4. Google Local Services Ads requirements
 

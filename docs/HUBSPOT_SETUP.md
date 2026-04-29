@@ -1,5 +1,7 @@
 # HubSpot Setup
 
+This setup follows the Roofing Business Partner HubSpot roofing standard. For the conceptual model and object/association rules, read `docs/HUBSPOT_ROOFING_STANDARD.md`.
+
 ## Recommended objects
 
 Use standard HubSpot objects first:
@@ -7,7 +9,8 @@ Use standard HubSpot objects first:
 - Contact — homeowner/property manager/business contact
 - Company — optional, mostly for commercial leads
 - Deal — sales opportunity
-- Notes/Calls/Tasks — interaction logging and next steps
+- Building/Listing custom object — physical property/location
+- Notes/Calls/Tasks/Emails/Communications — interaction logging and next steps
 
 ## Recommended contact properties
 
@@ -28,6 +31,23 @@ Optional custom properties:
 - `roofclaw_ai_handled`
 - `roofclaw_sales_urgency`
 - `roofclaw_requested_service`
+
+## Recommended building/listing properties
+
+Use the tenant's existing custom object schema where possible. Do not create properties without owner approval.
+
+Recommended conceptual fields:
+
+- street address
+- city
+- state/province
+- postal code
+- property type
+- normalized address key
+- source channel
+- latest LSA lead ID/resource name
+- last inspection date
+- latest open deal
 
 ## Recommended deal properties
 
