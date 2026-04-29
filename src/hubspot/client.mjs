@@ -61,8 +61,16 @@ export async function createDeal({ token, properties }) {
 }
 
 export async function associateDefault({ token, fromType, fromId, toType, toId }) {
-  return hubspotRequest(`/crm/v4/objects/${fromType}/${fromId}/associations/default/${toType}/${toId}`, {
-    method: 'PUT',
-    token
-  });
+  const currentPath = `/crm/objects/2026-03/${fromType}/${fromId}/associations/default/${toType}/${toId}`;
+  try {
+    return await hubspotRequest(currentPath, { method: 'PUT', token });
+  } catch (error) {
+    // HubSpot accounts/libraries may still support the legacy CRM v4 path.
+    // Keep this fallback so the launchpad remains usable while HubSpot's docs and API versions migrate.
+    if (!String(error.message || '').includes('404')) throw error;
+    return hubspotRequest(`/crm/v4/objects/${fromType}/${fromId}/associations/default/${toType}/${toId}`, {
+      method: 'PUT',
+      token
+    });
+  }
 }

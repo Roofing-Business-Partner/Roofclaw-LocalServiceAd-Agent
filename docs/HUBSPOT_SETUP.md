@@ -52,3 +52,8 @@ Optional custom properties:
 Do not guess pipeline IDs or stage IDs.
 
 Read available pipelines first, then ask the owner which one should receive LSA sales opportunities.
+
+
+## Association endpoint note
+
+HubSpot's current association guide documents date-versioned association endpoints such as `/crm/objects/2026-03/{fromObjectType}/{fromObjectId}/associations/default/{toObjectType}/{toObjectId}`. Some older examples and integrations use `/crm/v4/objects/...`. The starter code tries the current date-versioned path first and falls back to the older v4 path on 404.
