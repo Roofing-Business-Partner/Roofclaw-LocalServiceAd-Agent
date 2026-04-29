@@ -47,3 +47,12 @@ APIs change. A Sales RoofClaw implementing this repo should verify field names a
 
 - OpenClaw Voice Call plugin docs:
   - https://docs.openclaw.ai/plugins/voice-call
+
+## Google LSA lead ingestion
+
+- Google Ads Help — Retrieve leads using Google Ads API:
+  - https://support.google.com/google-ads/answer/12080108
+- Google Ads API — `local_services_lead` fields:
+  - https://developers.google.com/google-ads/api/fields/latest/local_services_lead
+- Google Ads API — `LocalServicesLeadConversation` resource:
+  - https://developers.google.com/google-ads/api/reference/rpc/latest/LocalServicesLeadConversation
