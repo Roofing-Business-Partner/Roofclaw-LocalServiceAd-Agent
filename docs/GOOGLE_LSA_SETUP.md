@@ -21,7 +21,7 @@ Body:
 {
   "conversations": [
     {
-      "localServicesLead": "customers/{customerId}/localServicesLeads/{leadId}",
+      "localServicesLead": "customers/{customerId}/localServicesLead/{leadId}",
       "text": "Thanks for reaching out — we received your request and will follow up shortly."
     }
   ]

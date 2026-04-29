@@ -1,5 +1,5 @@
 {
-  "resource_name": "customers/1234567890/localServicesLeads/987654321",
+  "resource_name": "customers/1234567890/localServicesLead/987654321",
   "id": "987654321",
   "creation_date_time": "2026-04-29 08:15:00",
   "lead_type": "MESSAGE",

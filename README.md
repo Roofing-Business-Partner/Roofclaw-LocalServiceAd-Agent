@@ -67,6 +67,7 @@ Start here:
 2. [`AGENTS.md`](./AGENTS.md) — hard instructions for the RoofClaw agent
 3. [`docs/P0_PRESETUP.md`](./docs/P0_PRESETUP.md) — required setup before code
 4. [`docs/IMPLEMENTATION.md`](./docs/IMPLEMENTATION.md) — staged build plan
+5. [`docs/SOURCES.md`](./docs/SOURCES.md) — primary API references
 
 ## Repository status
 

@@ -78,7 +78,7 @@ With owner approval, append one safe test response to one test/low-risk lead:
 ```js
 await appendLeadConversation({
   customerId: process.env.GOOGLE_ADS_CUSTOMER_ID,
-  leadResourceName: 'customers/1234567890/localServicesLeads/987654321',
+  leadResourceName: 'customers/1234567890/localServicesLead/987654321',
   text: 'Thanks for reaching out — we received your request and will follow up shortly.'
 })
 ```
