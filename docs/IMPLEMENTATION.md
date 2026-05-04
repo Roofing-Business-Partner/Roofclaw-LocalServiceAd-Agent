@@ -110,7 +110,33 @@ await appendLeadConversation({
 
 Then verify in the LSA inbox.
 
-## Stage 8 — Channel expansion
+## Stage 8 — Phone setup fast path
+
+Before enabling phone follow-up, use the Twilio onboarding preflight from `docs/PHONE_SETUP.md`.
+
+Dry-run first:
+
+```bash
+npm run phone:twilio:check
+```
+
+If Twilio credentials are not available in the current shell, use offline validation for docs/CI only:
+
+```bash
+npm run phone:twilio:offline
+```
+
+Only after owner approval, a stable public webhook URL, and a dedicated test number:
+
+```bash
+VOICE_CALL_LIVE_MODE=true npm run phone:twilio:apply
+openclaw voicecall setup
+openclaw voicecall smoke --to "+15555550123"
+```
+
+Do not run `phone:twilio:apply` on the customer's public office/LSA number unless the CallRail/routing decision has already been made and approved.
+
+## Stage 9 — Channel expansion
 
 Add one channel at a time:
 
@@ -128,7 +154,7 @@ Each channel needs:
 - Human escalation path
 - Dry-run/test/live switch
 
-## Stage 9 — Live mode
+## Stage 10 — Live mode
 
 Only enable live mode after:
 

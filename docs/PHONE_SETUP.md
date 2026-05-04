@@ -95,6 +95,74 @@ Preferred order:
 
 Do not rely on a temporary free ngrok URL for a production Sales RoofClaw.
 
+## Twilio fast-path onboarding
+
+A roofer should not need to click through the Twilio Console just to paste a webhook URL.
+
+This repo includes a Twilio onboarding preflight inspired by Nicolò Tognoni's open-source Patter SDK, which showed a clean pattern for binding a carrier number to an agent webhook. We are not replacing OpenClaw Voice Call with Patter. We are borrowing the useful setup affordance: validate the phone inputs, confirm the number belongs to the Twilio account, generate the OpenClaw config shape, and optionally set Twilio's `VoiceUrl` through the Twilio API.
+
+Credit / inspiration:
+
+```text
+https://github.com/PatterAI/Patter
+```
+
+### Dry-run preflight
+
+Set environment variables first. Do not paste real secrets into docs, git, chat, screenshots, CRM notes, or memory.
+
+```bash
+export TWILIO_ACCOUNT_SID=ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+export TWILIO_AUTH_TOKEN=***
+export TWILIO_FROM_NUMBER=+15555550123
+export VOICE_CALL_PUBLIC_URL=https://voice.example.com/voice/webhook
+
+npm run phone:twilio:check
+```
+
+The preflight:
+
+- validates required environment variables;
+- rejects loopback/private webhook hosts that Twilio cannot reach;
+- checks that `TWILIO_FROM_NUMBER` belongs to the Twilio account;
+- prints a redacted summary;
+- prints an OpenClaw `plugins.entries.voice-call` config snippet using Twilio + xAI streaming/TTS defaults.
+
+For docs-only or CI validation without calling Twilio:
+
+```bash
+npm run phone:twilio:offline
+```
+
+### Apply Twilio webhook
+
+Only after the owner approves the live test number and public URL:
+
+```bash
+VOICE_CALL_LIVE_MODE=true npm run phone:twilio:apply
+```
+
+`phone:twilio:apply` requires both `VOICE_CALL_LIVE_MODE=true` and the script's internal `--yes` flag. It updates only the Twilio incoming number's `VoiceUrl` to the configured OpenClaw webhook. It does not buy numbers, enable live calling by itself, or relax OpenClaw call guardrails.
+
+### What this removes from setup
+
+Without the fast path, the builder has to:
+
+1. find the Twilio number in Console;
+2. discover the right webhook path;
+3. paste the public URL manually;
+4. remember POST method;
+5. then separately build OpenClaw config.
+
+With the fast path, the normal roofer setup becomes:
+
+1. collect Twilio SID/token/owned number securely;
+2. choose a stable public webhook URL;
+3. run the preflight;
+4. review generated config;
+5. run one gated apply;
+6. run `openclaw voicecall setup` and smoke tests.
+
 ## Recommended rollout stages
 
 ### Stage A — Mock mode

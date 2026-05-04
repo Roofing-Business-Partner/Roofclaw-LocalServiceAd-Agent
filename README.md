@@ -10,7 +10,7 @@ It guides a qualifying RoofClaw through connecting:
 
 - HubSpot CRM contacts, deals, activities, and RBP's building/listing custom object standard
 - Google Local Services Ads leads and message replies
-- Optional outbound/inbound phone workflows through OpenClaw Voice Call using Twilio + xAI/Grok voice stack
+- Optional outbound/inbound phone workflows through OpenClaw Voice Call using Twilio + xAI/Grok voice stack, with a Twilio onboarding fast path for validating the number/webhook and applying the VoiceUrl safely
 - Optional iMessage/SMS follow-up through BlueBubbles or the client's approved messaging stack
 - Optional email follow-up through the client's approved email stack
 - Human escalation rules for anything the sales agent should not handle alone
@@ -70,7 +70,7 @@ Start here:
 5. [`docs/HUBSPOT_ROOFING_STANDARD.md`](./docs/HUBSPOT_ROOFING_STANDARD.md) — RBP HubSpot object/association standard for roofers
 6. [`docs/CRM_COMPATIBILITY_POC.md`](./docs/CRM_COMPATIBILITY_POC.md) — forward-compatibility guide for ProLine/Powrline, RoofLink, AccuLynx, and other CRMs
 7. [`docs/GOOGLE_LSA_INGESTION.md`](./docs/GOOGLE_LSA_INGESTION.md) — Google LSA polling/notification design for sub-5-minute response
-8. [`docs/PHONE_SETUP.md`](./docs/PHONE_SETUP.md) — Twilio-first phone setup standard, with CallRail for routed/tracking-number cases
+8. [`docs/PHONE_SETUP.md`](./docs/PHONE_SETUP.md) — Twilio-first phone setup standard, with CallRail for routed/tracking-number cases and a Patter-inspired Twilio onboarding fast path
 9. [`docs/VOICE_STACK_STANDARD.md`](./docs/VOICE_STACK_STANDARD.md) — xAI/Grok voice stack standard and benchmark rules
 10. [`docs/CALL_GUARDRAILS.md`](./docs/CALL_GUARDRAILS.md) — live call scripts, escalation triggers, and HubSpot logging format
 11. [`docs/SOURCES.md`](./docs/SOURCES.md) — primary API references
