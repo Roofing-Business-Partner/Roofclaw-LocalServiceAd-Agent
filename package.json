@@ -9,7 +9,10 @@
     "soul:check": "node scripts/preflight/soul-purpose-check.mjs",
     "dry-run": "node src/examples/dry-run-lead-to-hubspot.mjs fixtures/sample-lsa-lead.json",
     "lsa:poll": "node src/lsa/poll-new-leads.mjs",
-    "test": "node scripts/preflight/soul-purpose-check.mjs templates/SALES_SOUL_EXAMPLE.md && node src/examples/dry-run-lead-to-hubspot.mjs fixtures/sample-lsa-lead.json"
+    "test": "node scripts/preflight/soul-purpose-check.mjs templates/SALES_SOUL_EXAMPLE.md && node src/examples/dry-run-lead-to-hubspot.mjs fixtures/sample-lsa-lead.json",
+    "phone:twilio:check": "node src/phone/twilio-onboarding.mjs",
+    "phone:twilio:offline": "node src/phone/twilio-onboarding.mjs --offline",
+    "phone:twilio:apply": "node src/phone/twilio-onboarding.mjs --apply --yes"
   },
   "engines": {
     "node": ">=20"

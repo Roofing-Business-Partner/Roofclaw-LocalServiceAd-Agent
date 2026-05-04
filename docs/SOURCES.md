@@ -48,6 +48,18 @@ APIs change. A Sales RoofClaw implementing this repo should verify field names a
 - OpenClaw Voice Call plugin docs:
   - https://docs.openclaw.ai/plugins/voice-call
 
+## Twilio phone setup
+
+- Incoming Phone Numbers API:
+  - https://www.twilio.com/docs/phone-numbers/api/incomingphonenumber-resource
+- Webhook request validation:
+  - https://www.twilio.com/docs/usage/security#validating-requests
+
+## Setup inspiration / attribution
+
+- Patter by PatterAI — open-source SDK that demonstrates a clean carrier + tunnel setup flow for AI phone agents:
+  - https://github.com/PatterAI/Patter
+
 ## Google LSA lead ingestion
 
 - Google Ads Help — Retrieve leads using Google Ads API:
